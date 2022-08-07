@@ -61,7 +61,7 @@
 
 
   <script>
-    window.addEventListener('keydown', function (e) {
+    function playSound(e) {
       //keycode.info에서 각 키값을 확인할 수 있다.
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
@@ -69,15 +69,16 @@
       audio.currentTime = 0; // rewind to the start
       audio.play();
       key.classList.add('playing');
-    })
+    }
 
     function removeTransition(e) {
       if (e.propertyName !== 'transform') return; //skip it if it's not a transform
-      console.log(e.propertyName);
+      this.classList.remove('playing');
     }
 
     const keys = document.querySelectorAll('.key');
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    window.addEventListener('keydown', playSound);
 
   </script>
 </body>
