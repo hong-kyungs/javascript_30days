@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
-  <title>Flex Panels</title>
+  <title>Flex Panels-mine</title>
 </head>
 
 <body>
@@ -149,18 +149,6 @@
   <script>
     const panels = document.querySelectorAll('.panel');
 
-    // function toggleOpen() {
-    //   this.classList.toggle('open');
-    // }
-    // function toggleOpen(index) {
-    //   panels.forEach((panel, index) => {
-    //     for (let panel of panels) {
-    //       el.classList.remove("open");
-    //     }
-    //     panels[index].classList.add("on");
-    //   })
-    // }
-
     function toggleActive(e) {
       if (e.propertyName.includes('flex')) {
         this.classList.toggle('open-active');
@@ -175,17 +163,6 @@
         panels[index].classList.add('open');
       })
     })
-    /*
-    panels.addEventListener('click', () => {
-      panels.forEach((panel, index) => {
-        for (let panel of panels) {
-          panel.classList.remove("open");
-        }
-        panels[index].classList.add("open");
-      })
-    })
-    */
-    // panels.forEach(panel => panel.addEventListener('click', toggleOpen));
     panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
 </body>
