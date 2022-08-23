@@ -77,3 +77,12 @@ h2 {
 	outline: 0;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 }
+.btns {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.btns input {
+	padding: 2px 5px;
+	cursor: pointer;
+}
