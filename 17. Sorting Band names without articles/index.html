@@ -44,21 +44,27 @@
       text-decoration: none;
     }
   </style>
-  <ul id="bands"></ul>
+
+  <ul id="bands">
+  </ul>
 
   <script>
     const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
     function strip(bandName) {
-      return bandName.replace(/^(a |the |an )/i, '').trim();
+      //replace : a, the , an 을 찾아서 ""(빈문자열)로 변환, 즉 없애준다.
+      return bandName.replace(/^(a |the |an )/i, "").trim();
     }
 
+    // const sortedBands = bands.sort((a, b) => {
+    //   return strip(a) > strip(b) ? 1 : -1
+    // });
+    //을 아래처럼 한줄로 줄여줄 수 있다.
     const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
 
     document.querySelector('#bands').innerHTML =
-      sortedBands
-        .map(band => `<li>${band}</li>`)
-        .join('');
+      sortedBands.map(band => `<li>${band}</li>`).join('')
+
 
     console.log(sortedBands);
 
