@@ -197,7 +197,6 @@
         //parseFloat이라는 function만 바로 실행해주기떄문에 
         const [mins, secs] = timeCode.split(':').map(parseFloat);
         return (mins * 60) + secs;
-        console.log(mins, secs)
       })
       //reduce는 누적된 함수를 반환
       .reduce((total, vidSeconds) => total + vidSeconds);
