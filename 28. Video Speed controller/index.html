@@ -23,11 +23,23 @@
     const bar = document.querySelector('.speed-bar');
     const video = document.querySelector('.flex');
 
-    speed.addEventListener('mousemove', function (e) {
+    function handleMove(e) {
       const y = e.pageY - this.offsetTop;
       const percent = y / this.offsetHeight;
-      console.log(percent);
-    })
+      const min = 0.4;
+      const max = 4;
+      const height = Math.round(percent * 100) + '%';
+      // console.log(percent);
+      // console.log(height);
+      // playbackRate이 min = 0, max = 1 이 아니기때문에 복잡하다.
+      const playbackRate = percent * (max - min) + min;
+      bar.style.height = height;
+      //toFixed(2)는 two decimal numeral, 소수점 두자리
+      bar.textContent = playbackRate.toFixed(2) + 'x';
+      video.playbackRate = playbackRate;
+    }
+
+    speed.addEventListener('mousemove', handleMove);
   </script>
 </body>
 
